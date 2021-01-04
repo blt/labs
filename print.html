@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="systems_programming/allocators.html"><strong aria-hidden="true">2.1.</strong> allocators</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="systems_programming/branchless.html"><strong aria-hidden="true">2.1.</strong> branchless</a></li><li class="chapter-item expanded "><a href="systems_programming/allocators.html"><strong aria-hidden="true">2.2.</strong> allocators</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -175,6 +175,23 @@ figured that a less haphazard scheme for keeping my notes would be valuable to
 me and probably of interest to other folks. I've took a lot of inspiration from
 <a href="https://lab.jamesmunns.com/">James Munns</a> who took inspiration from
 <a href="https://lab.whitequark.org/">whitequark</a>.</p>
+<h1><a class="header" href="#branchless-programming" id="branchless-programming">Branchless Programming</a></h1>
+<p>Modern processors have very deep pipelines, making branch mispredictions
+costly. Compilers are pretty good at removing branches but not perfect at
+it. Here's a list of interesting things I've read on &quot;branchless&quot; programming:</p>
+<ul>
+<li>https://jaredgorski.org/notes/zett-branchless-programming-2020-08-11-1532/</li>
+<li>https://github.com/alpbintug/Branchless-programming</li>
+<li>https://arxiv.org/pdf/1602.06426.pdf</li>
+<li>https://hbfs.wordpress.com/2008/08/05/branchless-equivalents-of-simple-functions/</li>
+<li>https://bluejekyll.github.io/blog/rust/2018/01/10/branchless-rust.html</li>
+<li>https://www.blueraja.com/blog/285/branchless-conditionals-compiler-optimization-technique</li>
+<li>https://www.infoq.com/articles/making-code-faster-taming-branches/</li>
+<li>https://www.chessprogramming.org/Avoiding_Branches</li>
+</ul>
+<p>The Chess Programming wiki is probably the most obsessive piece in this list
+with additional references around the internet. I mean this in a good way. Chess
+folks do some of the most unusual high-performance programming around.</p>
 <h1><a class="header" href="#allocators" id="allocators">Allocators</a></h1>
 <p>An &quot;allocator&quot; is a library that sets aside an area in computer memory -- called
 the &quot;heap&quot; as opposed to the &quot;stack&quot; and &quot;static&quot; memory -- for use by some
@@ -211,6 +228,25 @@ turned up so far, in no particular order:</p>
 technical. I haven't been very careful about keeping an index of these things,
 since to me they feel like a kind of rocket exhaust. Anyhow.</p>
 <h2><a class="header" href="#writings" id="writings">Writings</a></h2>
+<h3><a class="header" href="#build-good-software-of-politics-and-methods" id="build-good-software-of-politics-and-methods">&quot;Build Good Software: Of Politics and Methods&quot;</a></h3>
+<p>I wrote this essay in 2017 to accompany a keynote I was invited to give at
+Lambda Days. I think a good deal of the software industry is dominated by a kind
+of unreflective techno-utopianism which I find to be both deleterious to the
+public good and harmful to the process of becoming good at writing software as a
+civilization. There are seeds in this work of my later interest in communal
+anti-mammon Christian social thought, though I didn't really have a sense of
+this at the time of writing. That would only come after a serious reading of
+Pr. Dietrich Bonhoeffer's
+<a href="https://en.wikipedia.org/wiki/The_Cost_of_Discipleship">&quot;Nachfolge&quot;</a>.</p>
+<p>Anyhow, the essay is still something that I'm proud of and I'd probably approach
+it in a broadly similar fashion today.</p>
+<p>You can read it online <a href="https://blog.troutwine.us/2017/02/10/build-good-software/">here</a></p>
+<h3><a class="header" href="#hands-on-concurrency-with-rust" id="hands-on-concurrency-with-rust">&quot;Hands-On Concurrency with Rust&quot;</a></h3>
+<p>This is my first book for Packt. You can find it
+<a href="https://www.packtpub.com/product/hands-on-concurrency-with-rust/9781788399975">here</a>. I
+wrote about the process of writing it
+<a href="https://blog.troutwine.us/2018/06/07/hands-on-concurrency-with-rust/">here</a>,
+why and how I did it. Fun project.</p>
 <h3><a class="header" href="#systems-programming-for-normal-people" id="systems-programming-for-normal-people">&quot;Systems Programming for Normal People&quot;</a></h3>
 <p>This is my in-progress book for No Starch press. The idea is to introduce
 systems programming for practicing software engineers that may not have had
@@ -219,6 +255,37 @@ orient the book toward what I see as the reality of systems programming today:
 migration of complex kernel workflows into a hybrid userspace model,
 minimization of memory copies, containerization and distribution.</p>
 <h2><a class="header" href="#talks" id="talks">Talks</a></h2>
+<h3><a class="header" href="#the-charming-genius-of-the-apollo-guidance-computer" id="the-charming-genius-of-the-apollo-guidance-computer">The Charming Genius of the Apollo Guidance Computer</a></h3>
+<p>This is probably my most watched talk. I had previously spoken at Erlang Factory
+conferences on, well, Erlang things and was invited by the Code Mesh folks to
+let loose a little. I was very interested in the hardware of the Apollo project
+at the time -- as a result of David Mindell's &quot;Digital Apollo&quot; book -- and spoke
+about the architecture of the Apollo guidance computer, a quirky little machine
+even for the time. There are some factual errors in the talk but overall I'm
+still a fan. London is quite a bit around the world from Berkeley, California
+and I was <em>very</em> tired. I've subsequently learned how to hide my notes from the
+audience, allowing me to avoid weird little goofs, but I hadn't hit on them here
+yet. Ah well, such is the peril of live performance. Amusingly this is one of
+the few talks I've given twice and the second time I <em>had</em> hit on my note method
+but the secondary screen failed, denying me my notes yet again.</p>
+<p>You can view this talk
+<a href="https://www.youtube.com/watch?v=xY45YE7ggng">online</a>. The second version is
+<a href="https://systemswe.love/videos/the-charming-genius-of-the-apollo-guidance-computer">here</a>.</p>
+<h3><a class="header" href="#getting-uphill-on-a-candle-crushed-spines-detached-retinas-and-one-small-step" id="getting-uphill-on-a-candle-crushed-spines-detached-retinas-and-one-small-step">Getting Uphill on a Candle: Crushed Spines, Detached Retinas and One Small Step</a></h3>
+<p>This is my favorite talk I've ever given. In 40 minutes I give a history of
+aeronautics from the Wright Brothers' flight through to the Moon landing. I
+recall my goal at the time was to describe how long-term technological change
+happens -- something I'm very interested in -- as well as push just how much
+information I could deliver to an audience in one sitting. If I remember
+correctly there are some 200 slides in the talk, so it's more like a very slow
+animation. You can view this talk
+<a href="https://www.youtube.com/watch?v=3lMYbkqPWFE">online</a>.</p>
+<p>I later gave a <a href="https://en.wikipedia.org/wiki/PechaKucha">PechaKucha</a> variant of
+this talk, but not in public.</p>
+<h3><a class="header" href="#build-good-software-of-politics-and-methods-1" id="build-good-software-of-politics-and-methods-1">Build Good Software: Of Politics and Methods</a></h3>
+<p>More detail in <a href="notes/writing-and-talking.html#build-good-software-of-politics-and-methods">this section</a>.</p>
+<p>You can view this talk
+<a href="https://www.youtube.com/watch?v=fdO4VN1IDI0&amp;list=PLPzMpGTwiBD0TBDW2oMefYg99g46TG1w5&amp;index=9">online</a>.</p>
 <h3><a class="header" href="#why-things-fail" id="why-things-fail">Why Things Fail</a></h3>
 <p><a href="https://twitter.com/redrapids">Bruce Tate</a> and I were doing a video series for
 a while called &quot;Why Things Fail&quot;. One of my research interests is the failure of
