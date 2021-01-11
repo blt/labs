@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="systems_programming/branchless.html"><strong aria-hidden="true">2.1.</strong> branchless</a></li><li class="chapter-item expanded "><a href="systems_programming/allocators.html"><strong aria-hidden="true">2.2.</strong> allocators</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="systems_programming/branchless.html"><strong aria-hidden="true">2.1.</strong> branchless</a></li><li class="chapter-item expanded "><a href="systems_programming/allocators.html"><strong aria-hidden="true">2.2.</strong> allocators</a></li><li class="chapter-item expanded "><a href="systems_programming/concurrency.html"><strong aria-hidden="true">2.3.</strong> concurrency</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -222,6 +222,14 @@ turned up so far, in no particular order:</p>
 <li>Maged Michael: <a href="https://www.cs.tufts.edu/%7Enr/cs257/archive/maged-michael/pldi-2004.pdf">Scalable Lock-Free Dynamic Memory Allocation</a></li>
 <li>Paul Lietar et al: <a href="https://www.microsoft.com/en-us/research/uploads/prod/2020/04/snmalloc.pdf">snmalloc: A Message Passing Allocator</a></li>
 <li>Trishul M. Chilimbi et al: <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/definition_distr.pdf">Cache-Conscious Structure Definition</a></li>
+</ul>
+<h1><a class="header" href="#concurrency" id="concurrency">Concurrency</a></h1>
+<p>This is probably my favorite area of systems programming. It's a niche that
+rewards an understanding of hardware, algorithms and the internal life of
+operating systems. Great fun.</p>
+<h2><a class="header" href="#exclusion" id="exclusion">Exclusion</a></h2>
+<ul>
+<li><a href="https://matklad.github.io/2020/01/02/spinlocks-considered-harmful.html">Spinlocks Considered Harmful</a></li>
 </ul>
 <h1><a class="header" href="#writing-and-talking" id="writing-and-talking">Writing and Talking</a></h1>
 <p>Over the years I've wrote and talked about a number of things, mostly
