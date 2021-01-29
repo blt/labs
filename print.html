@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="systems_programming/branchless.html"><strong aria-hidden="true">2.1.</strong> branchless</a></li><li class="chapter-item expanded "><a href="systems_programming/allocators.html"><strong aria-hidden="true">2.2.</strong> allocators</a></li><li class="chapter-item expanded "><a href="systems_programming/concurrency.html"><strong aria-hidden="true">2.3.</strong> concurrency</a></li><li class="chapter-item expanded "><a href="systems_programming/performance.html"><strong aria-hidden="true">2.4.</strong> measuring performance</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="systems_programming/branchless.html"><strong aria-hidden="true">2.1.</strong> branchless</a></li><li class="chapter-item expanded "><a href="systems_programming/allocators.html"><strong aria-hidden="true">2.2.</strong> allocators</a></li><li class="chapter-item expanded "><a href="systems_programming/concurrency.html"><strong aria-hidden="true">2.3.</strong> concurrency</a></li><li class="chapter-item expanded "><a href="systems_programming/performance.html"><strong aria-hidden="true">2.4.</strong> measuring performance</a></li><li class="chapter-item expanded "><a href="systems_programming/testing.html"><strong aria-hidden="true">2.5.</strong> testing</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -244,6 +244,21 @@ goals conflict?</p>
 <li><a href="https://bheisler.github.io/post/criterion-rs-0-3-4/">Criterion.rs v0.3.4 And Iai 0.1.0</a></li>
 <li><a href="https://tanelpoder.com/posts/11m-iops-with-10-ssds-on-amd-threadripper-pro-workstation/">Achieving 11M IOPS &amp; 66 GB/s IO on a Single ThreadRipper Workstation</a></li>
 <li><a href="https://0x.tools/">Always-on Profiling for Production Systems</a></li>
+</ul>
+<h1><a class="header" href="#testing" id="testing">Testing</a></h1>
+<p>Testing and software correctness are different but related things. &quot;Correct&quot;
+software is proven true in some important sense, like
+<a href="https://sel4.systems/">seL4</a>. Correctness is something our software culture
+still struggles to achieve. Testing is a process to demonstrate the absence of
+error for some inputs and previous state. It's a piecemeal process, where
+&quot;correctness&quot; is global.</p>
+<p>I'm very fond of testing tools that use randomness or exhaustiveness to explore
+the state space of a program, since human beings are (and I am especially) bad
+at coming up with failure causing inputs for programs. Here's some:</p>
+<ul>
+<li><a href="https://github.com/BurntSushi/quickcheck">Automated property based testing for Rust (with shrinking)</a></li>
+<li><a href="https://salsa.debian.org/reproducible-builds/disorderfs">disorderfs</a></li>
+<li><a href="https://github.com/tokio-rs/loom">Concurrency permutation testing tool for Rust</a></li>
 </ul>
 <h1><a class="header" href="#writing-and-talking" id="writing-and-talking">Writing and Talking</a></h1>
 <p>Over the years I've wrote and talked about a number of things, mostly
