@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>allocators - Lab Notebook</title>
+        <title>measuring performance - Lab Notebook</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../systems_programming/branchless.html"><strong aria-hidden="true">2.1.</strong> branchless</a></li><li class="chapter-item expanded "><a href="../systems_programming/allocators.html" class="active"><strong aria-hidden="true">2.2.</strong> allocators</a></li><li class="chapter-item expanded "><a href="../systems_programming/concurrency.html"><strong aria-hidden="true">2.3.</strong> concurrency</a></li><li class="chapter-item expanded "><a href="../systems_programming/performance.html"><strong aria-hidden="true">2.4.</strong> measuring performance</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../systems_programming/branchless.html"><strong aria-hidden="true">2.1.</strong> branchless</a></li><li class="chapter-item expanded "><a href="../systems_programming/allocators.html"><strong aria-hidden="true">2.2.</strong> allocators</a></li><li class="chapter-item expanded "><a href="../systems_programming/concurrency.html"><strong aria-hidden="true">2.3.</strong> concurrency</a></li><li class="chapter-item expanded "><a href="../systems_programming/performance.html" class="active"><strong aria-hidden="true">2.4.</strong> measuring performance</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,36 +163,19 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#allocators" id="allocators">Allocators</a></h1>
-<p>An &quot;allocator&quot; is a library that sets aside an area in computer memory -- called
-the &quot;heap&quot; as opposed to the &quot;stack&quot; and &quot;static&quot; memory -- for use by some
-other program. An allocator may or may not keep track of these &quot;allocations&quot; in
-its private mechanism and it may or may not allow for callers to &quot;return&quot;
-allocations to the allocator, thus freeing up that memory for us by another
-caller. If you've ever called <code>malloc</code>, <code>free</code> et all in C you've interacted
-with an allocator. If you've used a language with a runtime that manages memory
-you have done so indirectly. If you've only programmed for embedded devices that
-manage memory themselves and allocate only at startup then, well, kudos.</p>
-<p>The third chapter of my <a href="../notes/writing-and-talking.html#systems-programming-for-normal-people">new
-book</a>
-introduces the memory heirarchy of a computer, starting with static memory,
-working into the stack and out to the heap. By the end of the chapter the
-reader's got the ability to swap in new allocators but no ability to write them,
-on account of the book hasn't built up any expertise in thread-safe
-programming. Next chapter aims to teach that very thing and, in so doing, will
-build up several allocators. We'll see how successful I am. Anyhow, I've been
-going back through the literature on allocators. Here's what's interesting I've
-turned up so far, in no particular order:</p>
+                        <h1><a class="header" href="#measuring-performance" id="measuring-performance">Measuring Performance</a></h1>
+<p>One of the more difficult aspects of systems programming is figuring out how to
+optimize work, and sometimes to even define what &quot;optimize&quot; means. Do we want
+more clear code, less memory consumption, lower latency responses, less variant
+real-time responses, better throughput etc etc. What happens when optimization
+goals conflict?</p>
+<p>Anyhow, here's a list of interesting resources for measuring performance:</p>
 <ul>
-<li>Andrei Alexandrescu: <a href="http://erdani.org/publications/cuj-2005-12.pdf">Policy–Based Memory Allocation</a></li>
-<li>David Gay et al: <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.483.9985&amp;rep=rep1&amp;type=pdf">Memory Management with Explicit Regions</a></li>
-<li>Emery Berger et al: <a href="https://people.cs.umass.edu/%7Eemery/publications/berger-pldi2001.pdf">Composing High-Performance Memory Allocators</a></li>
-<li>Jason Evans: <a href="https://www.bsdcan.org/2006/papers/jemalloc.pdf">A Scalable Concurrent <code>malloc(3)</code> Implementation for FreeBSD</a></li>
-<li>Jeff Bonwick: <a href="https://www.usenix.org/conference/2001-usenix-annual-technical-conference/magazines-and-vmem-extending-slab-allocator-many">Magazines and Vmem: Extending the Slab Allocator to Many CPUs and Arbitrary Resources</a></li>
-<li>Jeff Bonwick: <a href="https://people.eecs.berkeley.edu/%7Ekubitron/courses/cs194-24-S14/hand-outs/bonwick_slab.pdf">The Slab Allocator: An Object-Caching Kernel Memory Allocator</a></li>
-<li>Maged Michael: <a href="https://www.cs.tufts.edu/%7Enr/cs257/archive/maged-michael/pldi-2004.pdf">Scalable Lock-Free Dynamic Memory Allocation</a></li>
-<li>Paul Lietar et al: <a href="https://www.microsoft.com/en-us/research/uploads/prod/2020/04/snmalloc.pdf">snmalloc: A Message Passing Allocator</a></li>
-<li>Trishul M. Chilimbi et al: <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/definition_distr.pdf">Cache-Conscious Structure Definition</a></li>
+<li><a href="https://buttondown.email/nelhage/archive/f6e8eddc-b96c-4e66-a648-006f9ebb6678">Performance Engineering Requires Stable Benchmarks</a></li>
+<li><a href="https://pythonspeed.com/articles/consistent-benchmarking-in-ci/">CI for performance: Reliable benchmarking in noisy environments</a></li>
+<li><a href="https://bheisler.github.io/post/criterion-rs-0-3-4/">Criterion.rs v0.3.4 And Iai 0.1.0</a></li>
+<li><a href="https://tanelpoder.com/posts/11m-iops-with-10-ssds-on-amd-threadripper-pro-workstation/">Achieving 11M IOPS &amp; 66 GB/s IO on a Single ThreadRipper Workstation</a></li>
+<li><a href="https://0x.tools/">Always-on Profiling for Production Systems</a></li>
 </ul>
 
                     </main>
@@ -200,13 +183,13 @@ turned up so far, in no particular order:</p>
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../systems_programming/branchless.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../systems_programming/concurrency.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../systems_programming/concurrency.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../notes/writing-and-talking.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -218,13 +201,13 @@ turned up so far, in no particular order:</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../systems_programming/branchless.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../systems_programming/concurrency.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="../systems_programming/concurrency.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../notes/writing-and-talking.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

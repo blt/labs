@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="systems_programming/branchless.html"><strong aria-hidden="true">2.1.</strong> branchless</a></li><li class="chapter-item expanded "><a href="systems_programming/allocators.html"><strong aria-hidden="true">2.2.</strong> allocators</a></li><li class="chapter-item expanded "><a href="systems_programming/concurrency.html"><strong aria-hidden="true">2.3.</strong> concurrency</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="systems_programming/branchless.html"><strong aria-hidden="true">2.1.</strong> branchless</a></li><li class="chapter-item expanded "><a href="systems_programming/allocators.html"><strong aria-hidden="true">2.2.</strong> allocators</a></li><li class="chapter-item expanded "><a href="systems_programming/concurrency.html"><strong aria-hidden="true">2.3.</strong> concurrency</a></li><li class="chapter-item expanded "><a href="systems_programming/performance.html"><strong aria-hidden="true">2.4.</strong> measuring performance</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="notes/writing-and-talking.html"><strong aria-hidden="true">3.1.</strong> Writing and Talking</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -230,6 +230,20 @@ operating systems. Great fun.</p>
 <h2><a class="header" href="#exclusion" id="exclusion">Exclusion</a></h2>
 <ul>
 <li><a href="https://matklad.github.io/2020/01/02/spinlocks-considered-harmful.html">Spinlocks Considered Harmful</a></li>
+</ul>
+<h1><a class="header" href="#measuring-performance" id="measuring-performance">Measuring Performance</a></h1>
+<p>One of the more difficult aspects of systems programming is figuring out how to
+optimize work, and sometimes to even define what &quot;optimize&quot; means. Do we want
+more clear code, less memory consumption, lower latency responses, less variant
+real-time responses, better throughput etc etc. What happens when optimization
+goals conflict?</p>
+<p>Anyhow, here's a list of interesting resources for measuring performance:</p>
+<ul>
+<li><a href="https://buttondown.email/nelhage/archive/f6e8eddc-b96c-4e66-a648-006f9ebb6678">Performance Engineering Requires Stable Benchmarks</a></li>
+<li><a href="https://pythonspeed.com/articles/consistent-benchmarking-in-ci/">CI for performance: Reliable benchmarking in noisy environments</a></li>
+<li><a href="https://bheisler.github.io/post/criterion-rs-0-3-4/">Criterion.rs v0.3.4 And Iai 0.1.0</a></li>
+<li><a href="https://tanelpoder.com/posts/11m-iops-with-10-ssds-on-amd-threadripper-pro-workstation/">Achieving 11M IOPS &amp; 66 GB/s IO on a Single ThreadRipper Workstation</a></li>
+<li><a href="https://0x.tools/">Always-on Profiling for Production Systems</a></li>
 </ul>
 <h1><a class="header" href="#writing-and-talking" id="writing-and-talking">Writing and Talking</a></h1>
 <p>Over the years I've wrote and talked about a number of things, mostly
