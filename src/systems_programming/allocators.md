@@ -30,3 +30,13 @@ turned up so far, in no particular order:
 * Maged Michael: [Scalable Lock-Free Dynamic Memory Allocation](https://www.cs.tufts.edu/~nr/cs257/archive/maged-michael/pldi-2004.pdf)
 * Paul Lietar et al: [snmalloc: A Message Passing Allocator](https://www.microsoft.com/en-us/research/uploads/prod/2020/04/snmalloc.pdf)
 * Trishul M. Chilimbi et al: [Cache-Conscious Structure Definition](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/definition_distr.pdf)
+
+## Rust Allocators
+
+These are interesting Rust allocators that I'm aware of:
+
+* [bitpool](https://github.com/jamesmunns/bitpool/)
+* mycelium's [buddy](https://github.com/hawkw/mycelium/blob/main/alloc/src/buddy.rs)
+* [wee_alloc](https://github.com/rustwasm/wee_alloc/tree/HEAD/wee_alloc)
+* [sp-allocator](https://github.com/paritytech/substrate/tree/HEAD/primitives/allocator)
+* [basicalloc](https://github.com/wackywendell/basicalloc)
