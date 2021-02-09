@@ -122,7 +122,7 @@ access to a domain expert to talk with.
 
 Things take the time they take. In a world infected with Taylorism there is a
 strong sense in this kind of exploration work that the "clock is ticking" and
-they better get results fast. May be that there's time pressure but that's an
+you'd better get results fast. May be that there's time pressure but that's an
 independent and uncontrollable concern from the time you need to reason and
 perform experiments, chat with colleagues. If you're under no external time
 pressure but still feel an urgent need to get results, maybe think on that. We
