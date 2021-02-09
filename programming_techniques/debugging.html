@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Branchless - Lab Notebook</title>
+        <title>Debugging - Lab Notebook</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Programming Techniques</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../programming_techniques/debugging.html"><strong aria-hidden="true">2.1.</strong> Debugging</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../systems_programming/branchless.html" class="active"><strong aria-hidden="true">3.1.</strong> Branchless</a></li><li class="chapter-item expanded "><a href="../systems_programming/allocators.html"><strong aria-hidden="true">3.2.</strong> Allocators</a></li><li class="chapter-item expanded "><a href="../systems_programming/concurrency.html"><strong aria-hidden="true">3.3.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="../systems_programming/performance.html"><strong aria-hidden="true">3.4.</strong> Measuring Performance</a></li><li class="chapter-item expanded "><a href="../systems_programming/testing.html"><strong aria-hidden="true">3.5.</strong> Testing</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../notes/writing-and-talking.html"><strong aria-hidden="true">4.1.</strong> Writing and Talking</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Programming Techniques</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../programming_techniques/debugging.html" class="active"><strong aria-hidden="true">2.1.</strong> Debugging</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Systems Programming</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../systems_programming/branchless.html"><strong aria-hidden="true">3.1.</strong> Branchless</a></li><li class="chapter-item expanded "><a href="../systems_programming/allocators.html"><strong aria-hidden="true">3.2.</strong> Allocators</a></li><li class="chapter-item expanded "><a href="../systems_programming/concurrency.html"><strong aria-hidden="true">3.3.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="../systems_programming/performance.html"><strong aria-hidden="true">3.4.</strong> Measuring Performance</a></li><li class="chapter-item expanded "><a href="../systems_programming/testing.html"><strong aria-hidden="true">3.5.</strong> Testing</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Notes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../notes/writing-and-talking.html"><strong aria-hidden="true">4.1.</strong> Writing and Talking</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,36 +163,20 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#branchless-programming" id="branchless-programming">Branchless Programming</a></h1>
-<p>Modern processors have very deep pipelines, making branch mispredictions
-costly. Compilers are pretty good at removing branches but not perfect at
-it. Here's a list of interesting things I've read on &quot;branchless&quot; programming:</p>
-<ul>
-<li><a href="https://jaredgorski.org/notes/zett-branchless-programming-2020-08-11-1532/">Branchless programming, an article</a></li>
-<li><a href="https://github.com/alpbintug/Branchless-programming">Branchless Programming, a Github repo</a></li>
-<li><a href="https://arxiv.org/pdf/1602.06426.pdf">A loopless and branchless <code>O(1)</code> algorithm to generate the nextDyck word</a></li>
-<li><a href="https://hbfs.wordpress.com/2008/08/05/branchless-equivalents-of-simple-functions/">Branchless Equivalents of Simple Functions</a></li>
-<li><a href="https://bluejekyll.github.io/blog/rust/2018/01/10/branchless-rust.html">Branchless Rust</a></li>
-<li><a href="https://www.blueraja.com/blog/285/branchless-conditionals-compiler-optimization-technique">Branchless Conditionals (Compiler Optimization Technique)</a></li>
-<li><a href="https://www.infoq.com/articles/making-code-faster-taming-branches/">Making Code Faster: Taming Branches</a></li>
-<li><a href="https://www.chessprogramming.org/Avoiding_Branches">Chess Programming Wiki: Avoiding Branches</a></li>
-</ul>
-<p>The Chess Programming wiki is probably the most obsessive piece in this list
-with additional references around the internet. I mean this in a good way. Chess
-folks do some of the most unusual high-performance programming around.</p>
+                        <h1><a class="header" href="#debugging" id="debugging">Debugging</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../programming_techniques/debugging.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../systems_programming/allocators.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../systems_programming/branchless.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -204,13 +188,13 @@ folks do some of the most unusual high-performance programming around.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../programming_techniques/debugging.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="../systems_programming/allocators.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../systems_programming/branchless.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
