@@ -13,3 +13,8 @@ Anyhow, here's a list of interesting resources for measuring performance:
 * [Criterion.rs v0.3.4 And Iai 0.1.0](https://bheisler.github.io/post/criterion-rs-0-3-4/)
 * [Achieving 11M IOPS & 66 GB/s IO on a Single ThreadRipper Workstation](https://tanelpoder.com/posts/11m-iops-with-10-ssds-on-amd-threadripper-pro-workstation/)
 * [Always-on Profiling for Production Systems](https://0x.tools/)
+* [flamegraph-rs](https://github.com/flamegraph-rs/flamegraph)
+
+The `flamegraph-rs`
+[README](https://github.com/flamegraph-rs/flamegraph#systems-performance-work-guided-by-flamegraphs)
+has an excellent section on performance work.
